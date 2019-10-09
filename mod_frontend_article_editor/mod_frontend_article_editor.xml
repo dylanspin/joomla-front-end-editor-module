@@ -1,0 +1,61 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<extension type="module" version="3.9.0" client="site" method="upgrade">
+    <name>Frontend Article Editor</name>
+    <author>Michel Gerding / Dylan Spin</author>
+    <version>1.0.0</version>
+    <description>A simple frontend article editor</description>
+    <files>
+        <filename>mod_frontend_article_editor.xml</filename>
+        <filename module = "mod_frontend_article_editor">mod_frontend_article_editor.php</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+        <filename>css/main.css</filename>
+        <filename>sql/install.sql</filename>
+    </files>
+    
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                 <field name="visible_article" type="radio" class="btn-group btn-group-yesno" label="Laat article zien in frontend" default="1">
+                    <option value="1">Ja</option>
+                    <option value="0">Nee</option>
+                </field>
+                <field name="position" type="list" label="Position">
+                    <option value="left">links</option>
+                    <option value="center">midden</option>
+                    <option value="right">rechts</option>
+                </field>
+                <field name="font" type="number" label="Font size in pixels" default="16"/>
+                <field name="visible_editor" type="radio" class="btn-group btn-group-yesno" label="Laat editor zien in frontend" default="1">
+                    <option value="1">Ja</option>
+                    <option value="0">Nee</option>
+                </field>
+                <field name="visible_title" type="radio" class="btn-group btn-group-yesno" label="Laat title zien in frontend" default="1">
+                    <option value="1">Ja</option>
+                    <option value="0">Nee</option>
+                </field>
+                <field name="art_tag" type="list" label="Element" default="p">
+                    <option value="h1">H1</option>
+                    <option value="h2">H2</option>
+                    <option value="h3">H3</option>
+                    <option value="h4">H4</option>
+                    <option value="h5">H5</option>
+                    <option value="h6">H6</option>
+                    <option value="P">P</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

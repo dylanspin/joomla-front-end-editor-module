@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__frontend_article_editor1`;
